@@ -1,1 +1,3 @@
-console.log('YAY!');
+const startApplication = require('../javascripts/dataGate.js');
+
+startApplication();
