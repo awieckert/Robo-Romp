@@ -1,4 +1,4 @@
-let avtBots = [];
+const avtBots = [];
 let flyBots = [];
 let rogueBots = [];
 let player1Bot = [];
@@ -21,15 +21,15 @@ const getPlayer2Bot = () => {
 };
 
 const setAtvBots = (bot) => {
-  avtBots = bot;
+  avtBots.push(bot);
 };
 
 const getAtvBot = (botName) => {
-  avtBots.forEach((item) => {
-    if (item.name === botName) {
-      return item;
+  for (let i = 0; i < avtBots.length; i++) {
+    if (avtBots[i].name === botName) {
+      return avtBots[i];
     }
-  });
+  }
 };
 
 const setFlyBots = (bot) => {
