@@ -31,6 +31,15 @@ function atvRobots () {
   data.setAtvBots(goliathATVBot);
   const testBot = data.getAtvBot('Goliath-ATV');
   console.log('TestATVBot: ', testBot);
+
+  const merlinATVBot = Object.create(avtRobot);
+  merlinATVBot.name = 'Merlin-ATV';
+  merlinATVBot.critMulti = 2.0;
+  merlinATVBot.attack = 12;
+  merlinATVBot.health = Math.floor(Math.random() * (111 - 100) + 100);
+  merlinATVBot.armor = 2;
+  merlinATVBot.critNum = 6;
+  data.setAtvBots(merlinATVBot);
 };
 
 module.exports = {
