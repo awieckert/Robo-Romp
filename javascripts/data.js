@@ -1,6 +1,7 @@
 const atvBots = [];
 const flyBots = [];
 const rogueBots = [];
+let allTheBots = [];
 let player1Bot = [];
 let player2Bot = [];
 
@@ -49,11 +50,11 @@ const setFlyBots = (bot) => {
 };
 
 const getFlyBot = (botName) => {
-  flyBots.forEach((item) => {
-    if (item.name === botName) {
-      return item;
+  for (let i = 0; i < flyBots.length; i++) {
+    if (flyBots[i].name === botName) {
+      return flyBots[i];
     }
-  });
+  }
 };
 
 const setRogueBots = (bot) => {
@@ -61,11 +62,23 @@ const setRogueBots = (bot) => {
 };
 
 const getRogueBot = (botName) => {
-  rogueBots.forEach((item) => {
-    if (item.name === botName) {
-      return item;
+  for (let i = 0; i < rogueBots.length; i++) {
+    if (rogueBots[i].name === botName) {
+      return rogueBots[i];
     }
-  });
+  }
+};
+
+const setAllBotsArray = () => {
+  allTheBots = [...atvBots, ...flyBots, ...rogueBots,];
+};
+
+const getBot = (botName) => {
+  for (let i = 0; i < allTheBots.length; i++) {
+    if (allTheBots[i].name === botName) {
+      return allTheBots[i];
+    }
+  }
 };
 
 module.exports = {
@@ -82,4 +95,6 @@ module.exports = {
   getAtvBots,
   getFlyBots,
   getRogueBots,
+  setAllBotsArray,
+  getBot,
 };

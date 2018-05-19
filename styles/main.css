@@ -1,3 +1,34 @@
 body {
-  background-color: blue;
+  background-color: grey;
+}
+
+.robots {
+  height: 270px;
+  padding-bottom: 10px;
+}
+
+.thumbnail {
+  height: 100%;
+}
+
+.robots p {
+  font-size: 10.6px;
+}
+
+.thumbnail img {
+  height: 50%;
+  width: 60%;
+}
+
+h4 {
+  margin-top: 0px;
+  margin-bottom: 2px;
+}
+
+.red {
+  border: 2px solid red;
+}
+
+.blue {
+  border: 2px solid blue;
 }
