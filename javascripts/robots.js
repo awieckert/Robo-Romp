@@ -25,12 +25,9 @@ function atvRobots () {
   const goliathATVBot = Object.create(avtRobot);
   goliathATVBot.name = 'Goliath-ATV';
   goliathATVBot.critMulti = 1;
-  goliathATVBot.attack = 11;
+  goliathATVBot.attack = 13;
   goliathATVBot.health =  Math.floor(Math.random() * (200 - 150) + 150);
-  console.log('goliathATV: ', goliathATVBot);
-  data.setAtvBots(goliathATVBot);
-  const testBot = data.getAtvBot('Goliath-ATV');
-  console.log('TestATVBot: ', testBot);
+  goliathATVBot.description = 'The Goliath-ATV is a slow monstrosity of a machine. Otherwise known as `Beef Eater` this ATV has loads of health, tough armor and moderate attack damage.';
 
   const merlinATVBot = Object.create(avtRobot);
   merlinATVBot.name = 'Merlin-ATV';
@@ -39,6 +36,9 @@ function atvRobots () {
   merlinATVBot.health = Math.floor(Math.random() * (111 - 100) + 100);
   merlinATVBot.armor = 2;
   merlinATVBot.critChance = 6;
+  merlinATVBot.description = `The Merlin-ATV is a glass cannon. Expect high damage output from this ATV, but keep your distance these ATV's have lower health and even lower resistance to attacks.`;
+
+  data.setAtvBots(goliathATVBot);
   data.setAtvBots(merlinATVBot);
 };
 
@@ -50,6 +50,7 @@ const flyBots = () => {
   gryphonFlyBot.armor = 5;
   gryphonFlyBot.health = Math.floor(Math.random() * (141 - 120) + 120);
   gryphonFlyBot.critChance = 8;
+  gryphonFlyBot.description = `The Gryphon, AKA Mr. Generic. This flying robot is your standard front line soldier. Solid across all stats. Expect steady damage output, moderate armor and substantial health. Slightly higher crit chance than they Goliath-ATV`;
 
   const stingerFlyBot = Object.create(masterRobot);
   stingerFlyBot.name = 'Stinger';
@@ -57,6 +58,7 @@ const flyBots = () => {
   stingerFlyBot.critChance = 7;
   stingerFlyBot.armor = 4;
   stingerFlyBot.health = Math.floor(Math.random() * (121 - 110) + 110);
+  stingerFlyBot.description =  `The Stinger is an nimble, lightly armored flying bot. Above average base attack and crit chance. These bots have relatively love health but can devastate the battle field`;
 
   data.setFlyBots(gryphonFlyBot);
   data.setFlyBots(stingerFlyBot);
@@ -68,18 +70,26 @@ const rougeBots = () => {
   rogueBot.critMulti = 2.2;
   rogueBot.attack = 8;
   rogueBot.armor = 3;
+  rogueBot.health = Math.floor(Math.random() * (131 - 110) + 110);
 
   const combatRogue = Object.create(rogueBot);
   combatRogue.name = 'Combat-Rogue';
   combatRogue.attack = 9;
   combatRogue.critChance = 5;
   combatRogue.critMulti = 2;
-  combatRogue.health = Math.floor(Math.random() * (131 - 110) + 110);
+  combatRogue.description = `The Combat-Rogue wields two swords. Fast and in your face. Rogue's don't have much armor and the lowest base attack of any bot class but crit regularly. Combat-Rogues have higher base attack than Assassination-Rogues but crit slightly less.`;
 
-  const
-
+  const assassinationRogue = Object.create(rogueBot);
+  assassinationRogue.name = 'Assassination-Rogue';
+  assassinationRogue.critChance = 3;
+  assassinationRogue.attack = 7;
+  assassinationRogue.description = `The Assassination-Rogue unleashes devistating flurries of attacks with his two daggers. Lowest base attack but highest crit chance and crit multiplier of any bot. Take a chance...it may pay off.`;
+  data.setRogueBots(combatRogue);
+  data.setRogueBots(assassinationRogue);
 };
 
 module.exports = {
   atvRobots,
+  flyBots,
+  rougeBots,
 };
