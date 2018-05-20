@@ -2,6 +2,64 @@ const data = require('../javascripts/data.js');
 const dom = require('../javascripts/dom.js');
 
 let playerSelect = 1;
+let playerTurn = 1;
+
+const addStartFightEvent = () => {
+  $('#start-fight').on('click', randomizeStart);
+};
+
+const randomizeStart = () => {
+  const playerToStart = Math.floor((Math.random() * 2) + 1);
+  if (playerToStart === 1) {
+    $('#attack1').prop('disabled', false);
+    $('#attack2').prop('disabled', true);
+    playerTurn = playerToStart;
+  } else if (playerToStart === 2) {
+    $('#attack1').prop('disabled', true);
+    $('#attack2').prop('disabled', false);
+    playerTurn = playerToStart;
+  }
+};
+
+const addAttackEvent = () => {
+  $('body').on('click', '.attack', playerAttack);
+};
+
+const playerAttack = (e) => {
+  const player1 = data.getPlayer1Bot();
+  const player2 = data.getPlayer2Bot();
+  // const attackingPlayer = $(e.target).closest('.robot').prop('id');
+  switch (playerTurn) {
+    case 1:
+      $('#attack1').prop('disabled', true);
+      $('#attack2').prop('disabled', false);
+      const player1Attack = player1.swing();
+      const damageDealt = (player1Attack - player2.armor);
+      player2.health = (player2.health - damageDealt);
+      data.setPlayer2Bot(player2);
+      dom.buildFighter2(player2);
+      if (player2.health <= 0) {
+        dom.printWinner(player1);
+      }
+      console.log('player1 dmg: ', damageDealt);
+      playerTurn = 2;
+      break;
+    case 2:
+      $('#attack1').prop('disabled', false);
+      $('#attack2').prop('disabled', true);
+      const player2Attack = player2.swing();
+      const damageDealt2 = (player2Attack - player1.armor);
+      player1.health = (player1.health - damageDealt2);
+      data.setPlayer1Bot(player1);
+      dom.buildFighter1(player1);
+      if (player1.health <= 0) {
+        dom.printWinner(player2);
+      }
+      console.log('Player2 Dmg: ', damageDealt2);
+      playerTurn = 1;
+      break;
+  }
+};
 
 const addRobotSelectEvent = () => {
   $('.robots').on('click', selectRobot);
@@ -54,4 +112,6 @@ const selectRobot = (e) => {
 
 module.exports = {
   addRobotSelectEvent,
+  addAttackEvent,
+  addStartFightEvent,
 };

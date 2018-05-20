@@ -9,7 +9,7 @@ body {
 }
 
 .robot {
-  height: 410px;
+  height: 425px;
   padding-top: 10px;
 }
 
@@ -44,11 +44,23 @@ h4 {
   border: 2px solid blue;
 }
 
-#fighters {
-  border: 1px solid black;
-}
-
 #fighters p {
   color: rgb(172, 8, 8);
   font-size: 12px;
+}
+
+.behind {
+  display: none;
+}
+
+#player1:hover > .robot {
+  display: none;
+}
+
+@keyframes fadeout {
+  from {
+    display: block;
+  } to {
+    display: none;
+  }
 }

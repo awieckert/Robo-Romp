@@ -10,6 +10,8 @@ const initializeRobots = () => {
   dom.printAllBots();
   events.addRobotSelectEvent();
   data.setAllBotsArray();
+  events.addAttackEvent();
+  events.addStartFightEvent();
 };
 
 module.exports = initializeRobots;
