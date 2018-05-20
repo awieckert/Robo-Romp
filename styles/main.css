@@ -1,10 +1,21 @@
 body {
   background-color: grey;
+  overflow: hidden;
 }
 
 .robots {
   height: 270px;
   padding-bottom: 10px;
+}
+
+.robot {
+  height: 410px;
+  padding-top: 10px;
+}
+
+.robot .thumbnail img {
+  height: 85%;
+  width: 65%;
 }
 
 .thumbnail {
@@ -31,4 +42,13 @@ h4 {
 
 .blue {
   border: 2px solid blue;
+}
+
+#fighters {
+  border: 1px solid black;
+}
+
+#fighters p {
+  color: rgb(172, 8, 8);
+  font-size: 12px;
 }

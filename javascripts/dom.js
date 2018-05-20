@@ -64,6 +64,7 @@ const printPlayer1 = (bot1) => {
   stringToPrint += `</div>`;
   stringToPrint += `</div>`;
   printToDom('#player1', stringToPrint);
+  buildFighter1(bot1);
 };
 
 const printPlayer2 = (bot2) => {
@@ -77,6 +78,28 @@ const printPlayer2 = (bot2) => {
   stringToPrint += `</div>`;
   stringToPrint += `</div>`;
   printToDom('#player2', stringToPrint);
+  buildFighter2(bot2);
+};
+
+const buildFighter1 = (bot) => {
+  let stringToPrint = '';
+  stringToPrint += `<p>Health: ${bot.health}</p>`;
+  stringToPrint += `<p>Armor: ${bot.armor}</p>`;
+  stringToPrint += `<p>Attack: ${bot.attack}</p>`;
+  stringToPrint += `<p>Crit Chance: ${bot.critChance}</p>`;
+  stringToPrint += `<p>Crit Multiplier: ${bot.critMulti}</p>`;
+  printToDom('#fighter1', stringToPrint);
+};
+
+const buildFighter2 = (bot) => {
+  let stringToPrint = '';
+  stringToPrint += `<p>Health: ${bot.health}</p>`;
+  stringToPrint += `<p>Armor: ${bot.armor}</p>`;
+  stringToPrint += `<p>Attack: ${bot.attack}</p>`;
+  stringToPrint += `<p>Crit Chance: ${bot.critChance}</p>`;
+  stringToPrint += `<p>Crit Multiplier: ${bot.critMulti}</p>`;
+  printToDom('#fighter2', stringToPrint);
+
 };
 
 module.exports = {
