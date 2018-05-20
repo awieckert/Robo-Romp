@@ -48,3 +48,19 @@ h4 {
   color: rgb(172, 8, 8);
   font-size: 12px;
 }
+
+.behind {
+  display: none;
+}
+
+#player1:hover > .robot {
+  display: none;
+}
+
+@keyframes fadeout {
+  from {
+    display: block;
+  } to {
+    display: none;
+  }
+}
