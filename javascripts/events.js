@@ -8,7 +8,7 @@ const addRobotSelectEvent = () => {
 };
 
 const selectRobot = (e) => {
-  const roboTarget = $(e.target).closest('.robots');
+  const roboTarget = $(e.target).closest('.thumbnail');
   console.log('robotarget: ', roboTarget);
   const roboTargetId = $(e.target).closest('.robots').prop('id');
   console.log('robotID: ', roboTargetId);
