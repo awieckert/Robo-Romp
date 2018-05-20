@@ -54,12 +54,14 @@ const printAllBots = () => {
 };
 
 const printPlayer1 = (bot1) => {
+  data.setPlayer1Bot(bot1);
   let stringToPrint = '';
   stringToPrint +=  `<div id='${bot1.name}' class="col-md-12 robot">`;
   stringToPrint +=  `<div class="thumbnail">`;
   stringToPrint +=  `<img src="${bot1.img}" alt="...">`;
   stringToPrint +=  `<div class="caption">`;
   stringToPrint +=    `<h4>${bot1.name}</h4>`;
+  stringToPrint +=    `<button id='attack1' class='btn alert-danger attack' disabled>Attack!</button>`;
   stringToPrint +=  `</div>`;
   stringToPrint += `</div>`;
   stringToPrint += `</div>`;
@@ -68,12 +70,14 @@ const printPlayer1 = (bot1) => {
 };
 
 const printPlayer2 = (bot2) => {
+  data.setPlayer2Bot(bot2);
   let stringToPrint = '';
   stringToPrint +=  `<div id='${bot2.name}' class="col-md-12 robot">`;
   stringToPrint +=  `<div class="thumbnail">`;
   stringToPrint +=  `<img src="${bot2.img}" alt="...">`;
   stringToPrint +=  `<div class="caption">`;
   stringToPrint +=    `<h4>${bot2.name}</h4>`;
+  stringToPrint +=    `<button id='attack2' class='btn alert-danger attack' disabled>Attack!</button>`;
   stringToPrint +=  `</div>`;
   stringToPrint += `</div>`;
   stringToPrint += `</div>`;
@@ -99,11 +103,19 @@ const buildFighter2 = (bot) => {
   stringToPrint += `<p>Crit Chance: ${bot.critChance}</p>`;
   stringToPrint += `<p>Crit Multiplier: ${bot.critMulti}</p>`;
   printToDom('#fighter2', stringToPrint);
+};
 
+const printWinner = (botWinner) => {
+  let stringToPrint = '';
+  stringToPrint += `<h2>${botWinner.name} Wins!</h2>`;
+  printToDom('#winner', stringToPrint);
 };
 
 module.exports = {
   printAllBots,
   printPlayer1,
   printPlayer2,
+  buildFighter1,
+  buildFighter2,
+  printWinner,
 };

@@ -9,7 +9,7 @@ body {
 }
 
 .robot {
-  height: 410px;
+  height: 425px;
   padding-top: 10px;
 }
 
@@ -42,10 +42,6 @@ h4 {
 
 .blue {
   border: 2px solid blue;
-}
-
-#fighters {
-  border: 1px solid black;
 }
 
 #fighters p {
