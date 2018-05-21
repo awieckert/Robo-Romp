@@ -53,9 +53,9 @@ h4 {
   display: none;
 }
 
-#player1:hover > .robot {
+/* #player1:hover > .robot {
   display: none;
-}
+} */
 
 @keyframes fadeout {
   from {

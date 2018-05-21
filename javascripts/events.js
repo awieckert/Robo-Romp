@@ -4,6 +4,14 @@ const dom = require('../javascripts/dom.js');
 let playerSelect = 1;
 let playerTurn = 1;
 
+// try mouseover for the hide player event not mouseenter
+
+$('#player1').mouseover(function () {
+  $(this).fadeOut();
+}).mouseleave(function () {
+  $(this).fadeIn();
+});
+
 const addStartFightEvent = () => {
   $('#start-fight').on('click', randomizeStart);
 };
