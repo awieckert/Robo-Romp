@@ -56,6 +56,15 @@ const printAllBots = () => {
 const printPlayer1 = (bot1) => {
   data.setPlayer1Bot(bot1);
   let stringToPrint = '';
+  stringToPrint +=  `<div class="col-md-12 stats behind">`;
+  stringToPrint +=  `<div class="thumbnail">`;
+  stringToPrint +=  `<img src="" alt="...">`;
+  stringToPrint +=  `<div class="caption">`;
+  stringToPrint +=    `<h4>Test</h4>`;
+  stringToPrint +=  `</div>`;
+  stringToPrint += `</div>`;
+  stringToPrint += `</div>`;
+
   stringToPrint +=  `<div id='${bot1.name}' class="col-md-12 robot">`;
   stringToPrint +=  `<div class="thumbnail">`;
   stringToPrint +=  `<img src="${bot1.img}" alt="...">`;
@@ -72,7 +81,7 @@ const printPlayer1 = (bot1) => {
 const printPlayer2 = (bot2) => {
   data.setPlayer2Bot(bot2);
   let stringToPrint = '';
-  stringToPrint +=  `<div id='stats' class="col-md-12 robot behind">`;
+  stringToPrint +=  `<div class="col-md-12 stats behind">`;
   stringToPrint +=  `<div class="thumbnail">`;
   stringToPrint +=  `<img src="" alt="...">`;
   stringToPrint +=  `<div class="caption">`;
