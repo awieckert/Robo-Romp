@@ -56,12 +56,13 @@ const printAllBots = () => {
 const printPlayer1 = (bot1) => {
   data.setPlayer1Bot(bot1);
   let stringToPrint = '';
-  stringToPrint +=  `<div class="col-md-12 stats behind">`;
+  stringToPrint +=  `<div class="col-md-12 stats1 behind">`;
   stringToPrint +=  `<div class="thumbnail">`;
-  stringToPrint +=  `<img src="" alt="...">`;
-  stringToPrint +=  `<div class="caption">`;
-  stringToPrint +=    `<h4>Test</h4>`;
-  stringToPrint +=  `</div>`;
+  stringToPrint += `<p>Health: ${bot1.health}</p>`;
+  stringToPrint += `<p>Armor: ${bot1.armor}</p>`;
+  stringToPrint += `<p>Attack: ${bot1.attack}</p>`;
+  stringToPrint += `<p>Crit Chance: ${bot1.critChance}</p>`;
+  stringToPrint += `<p>Crit Multiplier: ${bot1.critMulti}</p>`;
   stringToPrint += `</div>`;
   stringToPrint += `</div>`;
 
@@ -81,12 +82,13 @@ const printPlayer1 = (bot1) => {
 const printPlayer2 = (bot2) => {
   data.setPlayer2Bot(bot2);
   let stringToPrint = '';
-  stringToPrint +=  `<div class="col-md-12 stats behind">`;
+  stringToPrint +=  `<div class="col-md-12 stats2 behind">`;
   stringToPrint +=  `<div class="thumbnail">`;
-  stringToPrint +=  `<img src="" alt="...">`;
-  stringToPrint +=  `<div class="caption">`;
-  stringToPrint +=    `<h4>Test</h4>`;
-  stringToPrint +=  `</div>`;
+  stringToPrint += `<p>Health: ${bot2.health}</p>`;
+  stringToPrint += `<p>Armor: ${bot2.armor}</p>`;
+  stringToPrint += `<p>Attack: ${bot2.attack}</p>`;
+  stringToPrint += `<p>Crit Chance: ${bot2.critChance}</p>`;
+  stringToPrint += `<p>Crit Multiplier: ${bot2.critMulti}</p>`;
   stringToPrint += `</div>`;
   stringToPrint += `</div>`;
 
@@ -105,21 +107,13 @@ const printPlayer2 = (bot2) => {
 
 const buildFighter1 = (bot) => {
   let stringToPrint = '';
-  stringToPrint += `<p>Health: ${bot.health}</p>`;
-  stringToPrint += `<p>Armor: ${bot.armor}</p>`;
-  stringToPrint += `<p>Attack: ${bot.attack}</p>`;
-  stringToPrint += `<p>Crit Chance: ${bot.critChance}</p>`;
-  stringToPrint += `<p>Crit Multiplier: ${bot.critMulti}</p>`;
+  stringToPrint += `<h2 class='red-text'>Health: ${bot.health}</h2>`;
   printToDom('#fighter1', stringToPrint);
 };
 
 const buildFighter2 = (bot) => {
   let stringToPrint = '';
-  stringToPrint += `<p>Health: ${bot.health}</p>`;
-  stringToPrint += `<p>Armor: ${bot.armor}</p>`;
-  stringToPrint += `<p>Attack: ${bot.attack}</p>`;
-  stringToPrint += `<p>Crit Chance: ${bot.critChance}</p>`;
-  stringToPrint += `<p>Crit Multiplier: ${bot.critMulti}</p>`;
+  stringToPrint += `<h2 class='red-text'>Health: ${bot.health}</h2>`;
   printToDom('#fighter2', stringToPrint);
 };
 

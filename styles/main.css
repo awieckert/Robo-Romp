@@ -31,7 +31,12 @@ body {
   width: 60%;
 }
 
-.stats {
+.stats1 {
+  height: 425px;
+  padding-top: 10px;
+}
+
+.stats2 {
   height: 425px;
   padding-top: 10px;
 }
@@ -64,6 +69,10 @@ h4 {
 
 #player2 {
   height: 427px;
+}
+
+.red-text {
+  color: rgb(151, 11, 11);
 }
 
 /* #player1:hover > .robot {

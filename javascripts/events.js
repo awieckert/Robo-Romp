@@ -8,10 +8,20 @@ let playerTurn = 1;
 
 $('#player1').mouseover(function () {
   $(this).find('.robot').fadeOut(500, function () {
-    $('.stats').fadeIn();
+    $('.stats1').fadeIn();
   });
 }).mouseleave(function () {
-  $(this).find('.stats').fadeOut(500, function () {
+  $(this).find('.stats1').fadeOut(500, function () {
+    $('.robot').fadeIn();
+  });
+});
+
+$('#player2').mouseover(function () {
+  $(this).find('.robot').fadeOut(500, function () {
+    $('.stats2').fadeIn();
+  });
+}).mouseleave(function () {
+  $(this).find('.stats2').fadeOut(500, function () {
     $('.robot').fadeIn();
   });
 });
