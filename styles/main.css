@@ -79,6 +79,29 @@ h4 {
   display: none;
 } */
 
+#damage {
+  background-image: url('../img/dmg.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 100px;
+  width: 125px;
+  margin-left: 65px;
+}
+
+#damage h2 {
+  margin-right: 20px;
+  margin-top: 15px;
+  padding-top: 25px;
+}
+
+#attack-dmg {
+
+}
+
+.dmg-h2 {
+  padding-top: 10px;
+}
+
 @keyframes fadeout {
   from {
     display: block;
