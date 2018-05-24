@@ -4,6 +4,24 @@ const rogueBots = [];
 let allTheBots = [];
 let player1Bot = [];
 let player2Bot = [];
+let player1MaxHealth = 0;
+let player2MaxHealth = 0;
+
+const setPlayer1MaxHealth = (health) => {
+  player1MaxHealth = health;
+};
+
+const getPlayer1MaxHealth = () => {
+  return player1MaxHealth;
+};
+
+const setPlayer2MaxHealth = (health) => {
+  player2MaxHealth = health;
+};
+
+const getPlayer2MaxHealth = () => {
+  return player2MaxHealth;
+};
 
 const getAtvBots = () => {
   return atvBots;
@@ -97,4 +115,8 @@ module.exports = {
   getRogueBots,
   setAllBotsArray,
   getBot,
+  setPlayer1MaxHealth,
+  setPlayer2MaxHealth,
+  getPlayer1MaxHealth,
+  getPlayer2MaxHealth,
 };

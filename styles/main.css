@@ -31,7 +31,12 @@ body {
   width: 60%;
 }
 
-.stats {
+.stats1 {
+  height: 425px;
+  padding-top: 10px;
+}
+
+.stats2 {
   height: 425px;
   padding-top: 10px;
 }
@@ -66,9 +71,36 @@ h4 {
   height: 427px;
 }
 
+.red-text {
+  color: rgb(151, 11, 11);
+}
+
 /* #player1:hover > .robot {
   display: none;
 } */
+
+#damage {
+  background-image: url('../img/dmg.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 100px;
+  width: 125px;
+  margin-left: 65px;
+}
+
+#damage h2 {
+  margin-right: 20px;
+  margin-top: 15px;
+  padding-top: 25px;
+}
+
+.wordDamage {
+  margin-left: 10px;
+}
+
+.dmg-h2 {
+  padding-top: 10px;
+}
 
 @keyframes fadeout {
   from {

@@ -55,13 +55,16 @@ const printAllBots = () => {
 
 const printPlayer1 = (bot1) => {
   data.setPlayer1Bot(bot1);
+  data.setPlayer1MaxHealth(bot1.health);
+
   let stringToPrint = '';
-  stringToPrint +=  `<div class="col-md-12 stats behind">`;
+  stringToPrint +=  `<div class="col-md-12 stats1 behind">`;
   stringToPrint +=  `<div class="thumbnail">`;
-  stringToPrint +=  `<img src="" alt="...">`;
-  stringToPrint +=  `<div class="caption">`;
-  stringToPrint +=    `<h4>Test</h4>`;
-  stringToPrint +=  `</div>`;
+  stringToPrint += `<p>Health: ${bot1.health}</p>`;
+  stringToPrint += `<p>Armor: ${bot1.armor}</p>`;
+  stringToPrint += `<p>Attack: ${bot1.attack}</p>`;
+  stringToPrint += `<p>Crit Chance: ${bot1.critChance}</p>`;
+  stringToPrint += `<p>Crit Multiplier: ${bot1.critMulti}</p>`;
   stringToPrint += `</div>`;
   stringToPrint += `</div>`;
 
@@ -74,19 +77,22 @@ const printPlayer1 = (bot1) => {
   stringToPrint +=  `</div>`;
   stringToPrint += `</div>`;
   stringToPrint += `</div>`;
+
   printToDom('#player1', stringToPrint);
   buildFighter1(bot1);
 };
 
 const printPlayer2 = (bot2) => {
   data.setPlayer2Bot(bot2);
+  data.setPlayer2MaxHealth(bot2.health);
   let stringToPrint = '';
-  stringToPrint +=  `<div class="col-md-12 stats behind">`;
+  stringToPrint +=  `<div class="col-md-12 stats2 behind">`;
   stringToPrint +=  `<div class="thumbnail">`;
-  stringToPrint +=  `<img src="" alt="...">`;
-  stringToPrint +=  `<div class="caption">`;
-  stringToPrint +=    `<h4>Test</h4>`;
-  stringToPrint +=  `</div>`;
+  stringToPrint += `<p>Health: ${bot2.health}</p>`;
+  stringToPrint += `<p>Armor: ${bot2.armor}</p>`;
+  stringToPrint += `<p>Attack: ${bot2.attack}</p>`;
+  stringToPrint += `<p>Crit Chance: ${bot2.critChance}</p>`;
+  stringToPrint += `<p>Crit Multiplier: ${bot2.critMulti}</p>`;
   stringToPrint += `</div>`;
   stringToPrint += `</div>`;
 
@@ -99,27 +105,31 @@ const printPlayer2 = (bot2) => {
   stringToPrint +=  `</div>`;
   stringToPrint += `</div>`;
   stringToPrint += `</div>`;
+
   printToDom('#player2', stringToPrint);
   buildFighter2(bot2);
 };
 
 const buildFighter1 = (bot) => {
+  const fighter1MaxHealth = data.getPlayer1MaxHealth();
+  const percentHealth = (bot.health / fighter1MaxHealth) * 100;
   let stringToPrint = '';
-  stringToPrint += `<p>Health: ${bot.health}</p>`;
-  stringToPrint += `<p>Armor: ${bot.armor}</p>`;
-  stringToPrint += `<p>Attack: ${bot.attack}</p>`;
-  stringToPrint += `<p>Crit Chance: ${bot.critChance}</p>`;
-  stringToPrint += `<p>Crit Multiplier: ${bot.critMulti}</p>`;
+  stringToPrint += `<h2 class='red-text'>Health ${bot.health.toFixed(1)}</h2>`;
+  stringToPrint += `<div class="progress">`;
+  stringToPrint += `<div id='health-bar1' class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="${bot.health}" aria-valuemin="0" aria-valuemax="${bot.health}" style="width: ${percentHealth}%;"></div>`;
+  stringToPrint += `</div>`;
   printToDom('#fighter1', stringToPrint);
 };
 
 const buildFighter2 = (bot) => {
+  const fighter2MaxHealth = data.getPlayer2MaxHealth();
+  const percentHealth = (bot.health / fighter2MaxHealth) * 100;
+  console.log('precentHealth: ', percentHealth);
   let stringToPrint = '';
-  stringToPrint += `<p>Health: ${bot.health}</p>`;
-  stringToPrint += `<p>Armor: ${bot.armor}</p>`;
-  stringToPrint += `<p>Attack: ${bot.attack}</p>`;
-  stringToPrint += `<p>Crit Chance: ${bot.critChance}</p>`;
-  stringToPrint += `<p>Crit Multiplier: ${bot.critMulti}</p>`;
+  stringToPrint += `<h2 class='red-text'>Health ${bot.health.toFixed(1)}</h2>`;
+  stringToPrint += `<div class="progress">`;
+  stringToPrint += `<div id='health-bar2' class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="${bot.health}" aria-valuemin="0" aria-valuemax="${bot.health}" style="width: ${percentHealth}%;"></div>`;
+  stringToPrint += `</div>`;
   printToDom('#fighter2', stringToPrint);
 };
 

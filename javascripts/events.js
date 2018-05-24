@@ -3,17 +3,36 @@ const dom = require('../javascripts/dom.js');
 
 let playerSelect = 1;
 let playerTurn = 1;
+let fightStatus = 'Off';
 
 // try mouseover for the hide player event not mouseenter
 
 $('#player1').mouseover(function () {
-  $(this).find('.robot').fadeOut(500, function () {
-    $('.stats').fadeIn();
-  });
+  if (fightStatus === 'Off') {
+    $(this).find('.robot').fadeOut(500, function () {
+      $('.stats1').fadeIn();
+    });
+  }
 }).mouseleave(function () {
-  $(this).find('.stats').fadeOut(500, function () {
-    $('.robot').fadeIn();
-  });
+  if (fightStatus === 'Off') {
+    $(this).find('.stats1').fadeOut(500, function () {
+      $('.robot').fadeIn();
+    });
+  }
+});
+
+$('#player2').mouseover(function () {
+  if (fightStatus === 'Off') {
+    $(this).find('.robot').fadeOut(500, function () {
+      $('.stats2').fadeIn();
+    });
+  }
+}).mouseleave(function () {
+  if (fightStatus === 'Off') {
+    $(this).find('.stats2').fadeOut(500, function () {
+      $('.robot').fadeIn();
+    });
+  }
 });
 
 const addStartFightEvent = () => {
@@ -26,10 +45,12 @@ const randomizeStart = () => {
     $('#attack1').prop('disabled', false);
     $('#attack2').prop('disabled', true);
     playerTurn = playerToStart;
+    fightStatus = 'On';
   } else if (playerToStart === 2) {
     $('#attack1').prop('disabled', true);
     $('#attack2').prop('disabled', false);
     playerTurn = playerToStart;
+    fightStatus = 'On';
   }
 };
 
@@ -46,10 +67,12 @@ const playerAttack = (e) => {
       $('#attack1').prop('disabled', true);
       $('#attack2').prop('disabled', false);
       const player1Attack = player1.swing();
-      const damageDealt = (player1Attack - player2.armor);
+      let damageDealt = (player1Attack - player2.armor);
+      damageDealt = damageDealt.toFixed(1);
       player2.health = (player2.health - damageDealt);
       data.setPlayer2Bot(player2);
       dom.buildFighter2(player2);
+      $('#attack-dmg').html(`<div><h2 class='wordDamage'>Damage</h2></div></div><div id='damage'><h2 class='dmg-h2'>${damageDealt}</h2></div>`);
       if (player2.health <= 0) {
         dom.printWinner(player1);
       }
@@ -60,10 +83,12 @@ const playerAttack = (e) => {
       $('#attack1').prop('disabled', false);
       $('#attack2').prop('disabled', true);
       const player2Attack = player2.swing();
-      const damageDealt2 = (player2Attack - player1.armor);
+      let damageDealt2 = (player2Attack - player1.armor);
+      damageDealt2 = damageDealt2.toFixed(1);
       player1.health = (player1.health - damageDealt2);
       data.setPlayer1Bot(player1);
       dom.buildFighter1(player1);
+      $('#attack-dmg').html(`<div><h2 class='wordDamage'>Damage</h2></div><div id='damage'><h2 class='dmg-h2'>${damageDealt2}</h2></div>`);
       if (player1.health <= 0) {
         dom.printWinner(player2);
       }
