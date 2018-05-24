@@ -94,8 +94,8 @@ h4 {
   padding-top: 25px;
 }
 
-#attack-dmg {
-
+.wordDamage {
+  margin-left: 10px;
 }
 
 .dmg-h2 {

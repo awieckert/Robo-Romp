@@ -72,7 +72,7 @@ const playerAttack = (e) => {
       player2.health = (player2.health - damageDealt);
       data.setPlayer2Bot(player2);
       dom.buildFighter2(player2);
-      $('#attack-dmg').html(`<div><h2>Damage</h2></div></div><div id='damage'><h2 class='dmg-h2'>${damageDealt}</h2></div>`);
+      $('#attack-dmg').html(`<div><h2 class='wordDamage'>Damage</h2></div></div><div id='damage'><h2 class='dmg-h2'>${damageDealt}</h2></div>`);
       if (player2.health <= 0) {
         dom.printWinner(player1);
       }
@@ -88,7 +88,7 @@ const playerAttack = (e) => {
       player1.health = (player1.health - damageDealt2);
       data.setPlayer1Bot(player1);
       dom.buildFighter1(player1);
-      $('#attack-dmg').html(`<div id='damage'><h2 class='dmg-h2'>${damageDealt2}</h2></div>`);
+      $('#attack-dmg').html(`<div><h2 class='wordDamage'>Damage</h2></div><div id='damage'><h2 class='dmg-h2'>${damageDealt2}</h2></div>`);
       if (player1.health <= 0) {
         dom.printWinner(player2);
       }

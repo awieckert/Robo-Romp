@@ -114,7 +114,7 @@ const buildFighter1 = (bot) => {
   const fighter1MaxHealth = data.getPlayer1MaxHealth();
   const percentHealth = (bot.health / fighter1MaxHealth) * 100;
   let stringToPrint = '';
-  stringToPrint += `<h2 class='red-text'>Health: ${bot.health.toFixed(1)}</h2>`;
+  stringToPrint += `<h2 class='red-text'>Health ${bot.health.toFixed(1)}</h2>`;
   stringToPrint += `<div class="progress">`;
   stringToPrint += `<div id='health-bar1' class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="${bot.health}" aria-valuemin="0" aria-valuemax="${bot.health}" style="width: ${percentHealth}%;"></div>`;
   stringToPrint += `</div>`;
@@ -126,7 +126,7 @@ const buildFighter2 = (bot) => {
   const percentHealth = (bot.health / fighter2MaxHealth) * 100;
   console.log('precentHealth: ', percentHealth);
   let stringToPrint = '';
-  stringToPrint += `<h2 class='red-text'>Health: ${bot.health.toFixed(1)}</h2>`;
+  stringToPrint += `<h2 class='red-text'>Health ${bot.health.toFixed(1)}</h2>`;
   stringToPrint += `<div class="progress">`;
   stringToPrint += `<div id='health-bar2' class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="${bot.health}" aria-valuemin="0" aria-valuemax="${bot.health}" style="width: ${percentHealth}%;"></div>`;
   stringToPrint += `</div>`;
