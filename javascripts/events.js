@@ -39,17 +39,28 @@ const addStartFightEvent = () => {
   $('#start-fight').on('click', randomizeStart);
 };
 
+const fightingStance = () => {
+  $('#player2').addClass('fighting');
+  $('#player1').addClass('fighting');
+};
+
 const randomizeStart = () => {
   const playerToStart = Math.floor((Math.random() * 2) + 1);
   if (playerToStart === 1) {
     $('#attack1').prop('disabled', false);
     $('#attack2').prop('disabled', true);
     playerTurn = playerToStart;
+    $('body').css('background-image', `url('../img/fightBackground1.jpg')`);
+    $('#robots-container').hide();
+    fightingStance();
     fightStatus = 'On';
   } else if (playerToStart === 2) {
     $('#attack1').prop('disabled', true);
     $('#attack2').prop('disabled', false);
     playerTurn = playerToStart;
+    $('body').css('background-image', `url('../img/fightBackground2.jpg')`);
+    $('#robots-container').hide();
+    fightingStance();
     fightStatus = 'On';
   }
 };

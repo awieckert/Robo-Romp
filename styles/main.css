@@ -1,5 +1,6 @@
 body {
-  background-color: grey;
+  background-image: url('../img/background1.jpg');
+  background-size: cover;
   overflow: hidden;
 }
 
@@ -20,15 +21,19 @@ body {
 
 .thumbnail {
   height: 100%;
+  background-color: gray;
+  /* opacity: 0.9; */
 }
 
 .robots p {
   font-size: 10.6px;
+  color: rgb(216, 211, 211);
 }
 
 .thumbnail img {
   height: 50%;
   width: 60%;
+  opacity: 1;
 }
 
 .stats1 {
@@ -96,6 +101,7 @@ h4 {
 
 .wordDamage {
   margin-left: 10px;
+  color: rgb(216, 211, 211);
 }
 
 .dmg-h2 {
@@ -119,3 +125,8 @@ h4 {
   from {width: 1000px;}
   to {width: 0px;}
 }
+
+.fighting {
+  margin-top: 16%;
+}
+
