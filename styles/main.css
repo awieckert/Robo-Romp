@@ -109,3 +109,13 @@ h4 {
     display: none;
   }
 }
+
+.attack-left {
+  animation-duration: 2s;
+  animation: leftAttack;
+}
+
+@keyframes leftAttack {
+  from {width: 1000px;}
+  to {width: 0px;}
+}

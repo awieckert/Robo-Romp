@@ -4,3 +4,4 @@ dist/
 .vscode/
 haters
 Mac Users
+node_modules
