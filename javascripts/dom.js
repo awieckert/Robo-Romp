@@ -60,11 +60,11 @@ const printPlayer1 = (bot1) => {
   let stringToPrint = '';
   stringToPrint +=  `<div class="col-md-12 stats1 behind">`;
   stringToPrint +=  `<div class="thumbnail">`;
-  stringToPrint += `<p>Health: ${bot1.health}</p>`;
-  stringToPrint += `<p>Armor: ${bot1.armor}</p>`;
-  stringToPrint += `<p>Attack: ${bot1.attack}</p>`;
-  stringToPrint += `<p>Crit Chance: ${bot1.critChance}</p>`;
-  stringToPrint += `<p>Crit Multiplier: ${bot1.critMulti}</p>`;
+  stringToPrint += `<h3>Health: ${bot1.health}</h3>`;
+  stringToPrint += `<h3>Armor: ${bot1.armor}</h3>`;
+  stringToPrint += `<h3>Attack: ${bot1.attack}</h3>`;
+  stringToPrint += `<h3>Crit Chance: ${bot1.critChance}</h3>`;
+  stringToPrint += `<h3>Crit Multiplier: ${bot1.critMulti}</h3>`;
   stringToPrint += `</div>`;
   stringToPrint += `</div>`;
 
@@ -88,11 +88,11 @@ const printPlayer2 = (bot2) => {
   let stringToPrint = '';
   stringToPrint +=  `<div class="col-md-12 stats2 behind">`;
   stringToPrint +=  `<div class="thumbnail">`;
-  stringToPrint += `<p>Health: ${bot2.health}</p>`;
-  stringToPrint += `<p>Armor: ${bot2.armor}</p>`;
-  stringToPrint += `<p>Attack: ${bot2.attack}</p>`;
-  stringToPrint += `<p>Crit Chance: ${bot2.critChance}</p>`;
-  stringToPrint += `<p>Crit Multiplier: ${bot2.critMulti}</p>`;
+  stringToPrint += `<h3>Health: ${bot2.health}</h3>`;
+  stringToPrint += `<h3>Armor: ${bot2.armor}</h3>`;
+  stringToPrint += `<h3>Attack: ${bot2.attack}</h3>`;
+  stringToPrint += `<h3>Crit Chance: ${bot2.critChance}</h3>`;
+  stringToPrint += `<h3>Crit Multiplier: ${bot2.critMulti}</h3>`;
   stringToPrint += `</div>`;
   stringToPrint += `</div>`;
 
