@@ -1,5 +1,8 @@
 const data = require('../javascripts/data.js');
 const dom = require('../javascripts/dom.js');
+const audioHit = `<audio id='hit' volume="1" autoplay><source src="./audio/hit1.wav" type="audio/wav"/></audio>`;
+const audioHit2 = `<audio id='hit' volume="1" autoplay><source src="./audio/hit2.wav" type="audio/wav"/></audio>`;
+const audioAttack = `<audio id='audio-attack' volume="1" autoplay><source src="./audio/attack.wav" type="audio/wav"/></audio>`;
 
 let playerSelect = 1;
 let playerTurn = 1;
@@ -51,6 +54,7 @@ const randomizeStart = () => {
     $('#attack2').prop('disabled', true);
     playerTurn = playerToStart;
     $('body').css('background-image', `url('../img/fightBackground1.jpg')`);
+    $('body').prepend('<audio src="./audio/fight.mp3" volume="1" autoplay></audio>');
     $('#robots-container').hide();
     fightingStance();
     fightStatus = 'On';
@@ -59,6 +63,7 @@ const randomizeStart = () => {
     $('#attack2').prop('disabled', false);
     playerTurn = playerToStart;
     $('body').css('background-image', `url('../img/fightBackground2.jpg')`);
+    $('body').prepend('<audio src="./audio/fight.mp3" volume="1" autoplay></audio>');
     $('#robots-container').hide();
     fightingStance();
     fightStatus = 'On';
@@ -70,7 +75,14 @@ const addAttackEvent = () => {
 };
 
 const playerHit = (num) => {
-  window.setTimeout(function () { $(`#player${num}`).addClass('animated shake'); }, 250);
+  window.setTimeout(function () { $(`#player${num}`).addClass('animated shake'); }, 230);
+  const selectAudio = Math.floor((Math.random() * 2) + 1);
+  if (selectAudio === 1) {
+    window.setTimeout(function () { $(`body`).prepend(audioHit); }, 230);
+  } else if (selectAudio === 2) {
+    window.setTimeout(function () { $(`body`).prepend(audioHit2); }, 230);
+  }
+
 };
 
 const removeHit = (num) => {
@@ -83,6 +95,7 @@ const attackAnimations1 = () => {
   $('#attack2').prop('disabled', false);
   $('#player1').addClass('animated slideInLeft');
   $('#player2').removeClass('animated slideInRight');
+  $(`body`).prepend(audioAttack);
   playerHit(2);
   removeHit(2);
 };
@@ -92,6 +105,7 @@ const attackAnimations2 = () => {
   $('#attack2').prop('disabled', true);
   $('#player2').addClass('animated slideInRight');
   $('#player1').removeClass('animated slideInLeft');
+  $(`body`).prepend(audioAttack);
   playerHit(1);
   removeHit(1);
 };
