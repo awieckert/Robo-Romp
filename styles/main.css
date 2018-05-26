@@ -130,3 +130,15 @@ h4 {
   margin-top: 16%;
 }
 
+#battle-dome {
+  margin-top: 20px;
+  height: 200px;
+}
+
+#enter {
+  width: 95%;
+  height: 100%;
+  background-image: url('../img/battle-dome.jpg');
+  background-size: stretch;
+  background-repeat: no-repeat;
+}
