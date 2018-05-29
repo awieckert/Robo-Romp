@@ -70,6 +70,12 @@ const randomizeStart = () => {
   }
 };
 
+// $(document).keypress(function (e) {
+//   if (e.which === 13) {
+//     $('.attack').click();
+//   }
+// });
+
 const addAttackEvent = () => {
   $('body').on('click', '.attack', playerAttack);
 };
@@ -113,7 +119,7 @@ const attackAnimations2 = () => {
 const playerAttack = (e) => {
   const player1 = data.getPlayer1Bot();
   const player2 = data.getPlayer2Bot();
-  // const attackingPlayer = $(e.target).closest('.robot').prop('id');
+
   switch (playerTurn) {
     case 1:
       attackAnimations1();
