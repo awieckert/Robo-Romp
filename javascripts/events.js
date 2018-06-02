@@ -52,32 +52,38 @@ const randomizeStart = () => {
   if (playerToStart === 1) {
     $('#attack1').prop('disabled', false);
     $('#attack2').prop('disabled', true);
-    playerTurn = playerToStart;
     $('body').css('background-image', `url('../img/fightBackground1.jpg')`);
     $('body').prepend('<audio src="./audio/fight.mp3" volume="1" autoplay></audio>');
     $('#robots-container').hide();
     fightingStance();
+    playerTurn = playerToStart;
     fightStatus = 'On';
   } else if (playerToStart === 2) {
     $('#attack1').prop('disabled', true);
     $('#attack2').prop('disabled', false);
-    playerTurn = playerToStart;
     $('body').css('background-image', `url('../img/fightBackground2.jpg')`);
     $('body').prepend('<audio src="./audio/fight.mp3" volume="1" autoplay></audio>');
     $('#robots-container').hide();
     fightingStance();
+    playerTurn = playerToStart;
     fightStatus = 'On';
   }
 };
 
-// $(document).keypress(function (e) {
-//   if (e.which === 13) {
-//     $('.attack').click();
-//   }
-// });
+$(document).keypress(function (e) {
+  if (fightStatus === 'On' && e.which === 13) {
+    $('#attack2').click();
+  } else if (fightStatus === 'On' && e.which === 49) {
+    $('#attack1').click();
+  } else {
+    console.log('Not Fighting Yet');
+  }
+});
 
 const addAttackEvent = () => {
-  $('body').on('click', '.attack', playerAttack);
+  // $('body').on('click', '.attack', playerAttack);
+  $('body').on('click', '#attack1', playerAttack);
+  $('body').on('click', '#attack2', playerAttack);
 };
 
 const playerHit = (num) => {
