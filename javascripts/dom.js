@@ -135,7 +135,7 @@ const buildFighter2 = (bot) => {
 
 const printWinner = (botWinner) => {
   let stringToPrint = '';
-  stringToPrint += `<h2>${botWinner.name} Wins!</h2>`;
+  stringToPrint += `<h2 id='winner-div'>${botWinner.name} Wins!</h2>`;
   printToDom('#winner', stringToPrint);
 };
 
