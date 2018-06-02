@@ -1,8 +1,11 @@
 const data = require('../javascripts/data.js');
 const dom = require('../javascripts/dom.js');
-const audioHit = `<audio id='hit' volume="1" autoplay><source src="./audio/hit1.wav" type="audio/wav"/></audio>`;
-const audioHit2 = `<audio id='hit' volume="1" autoplay><source src="./audio/hit2.wav" type="audio/wav"/></audio>`;
-const audioAttack = `<audio id='audio-attack' volume="1" autoplay><source src="./audio/attack.wav" type="audio/wav"/></audio>`;
+const audioHit = document.getElementById('hit1');
+const audioHit2 = document.getElementById('hit2');
+const audioAttack = document.getElementById('audio-attack');
+const fightAudio = document.getElementById('fightAudio');
+const player1WinsAudio = document.getElementById('player1-wins');
+const player2WinsAudio = document.getElementById('player2-wins');
 
 let playerSelect = 1;
 let playerTurn = 1;
@@ -52,37 +55,47 @@ const randomizeStart = () => {
   if (playerToStart === 1) {
     $('#attack1').prop('disabled', false);
     $('#attack2').prop('disabled', true);
-    playerTurn = playerToStart;
     $('body').css('background-image', `url('../img/fightBackground1.jpg')`);
-    $('body').prepend('<audio src="./audio/fight.mp3" volume="1" autoplay></audio>');
+    fightAudio.play();
     $('#robots-container').hide();
     fightingStance();
+    playerTurn = playerToStart;
     fightStatus = 'On';
   } else if (playerToStart === 2) {
     $('#attack1').prop('disabled', true);
     $('#attack2').prop('disabled', false);
-    playerTurn = playerToStart;
     $('body').css('background-image', `url('../img/fightBackground2.jpg')`);
-    $('body').prepend('<audio src="./audio/fight.mp3" volume="1" autoplay></audio>');
+    fightAudio.play();
     $('#robots-container').hide();
     fightingStance();
+    playerTurn = playerToStart;
     fightStatus = 'On';
   }
 };
 
 const addAttackEvent = () => {
-  $('body').on('click', '.attack', playerAttack);
+  $('body').on('click', '#attack1', playerAttack);
+  $('body').on('click', '#attack2', playerAttack);
+  $('body').on('keypress', determinePress);
+};
+
+const determinePress = (e) => {
+  console.log('KeyPress for Attack: ', e);
+  if (fightStatus === 'On' && e.which === 48 || e.which === 49) {
+    playerAttack();
+  } else {
+    console.log('Not Fighting Yet');
+  }
 };
 
 const playerHit = (num) => {
   window.setTimeout(function () { $(`#player${num}`).addClass('animated shake'); }, 230);
   const selectAudio = Math.floor((Math.random() * 2) + 1);
   if (selectAudio === 1) {
-    window.setTimeout(function () { $(`body`).prepend(audioHit); }, 230);
+    window.setTimeout(function () { audioHit.play(); }, 230);
   } else if (selectAudio === 2) {
-    window.setTimeout(function () { $(`body`).prepend(audioHit2); }, 230);
+    window.setTimeout(function () { audioHit2.play(); }, 230);
   }
-
 };
 
 const removeHit = (num) => {
@@ -95,7 +108,7 @@ const attackAnimations1 = () => {
   $('#attack2').prop('disabled', false);
   $('#player1').addClass('animated slideInLeft');
   $('#player2').removeClass('animated slideInRight');
-  $(`body`).prepend(audioAttack);
+  audioAttack.play();
   playerHit(2);
   removeHit(2);
 };
@@ -105,7 +118,7 @@ const attackAnimations2 = () => {
   $('#attack2').prop('disabled', true);
   $('#player2').addClass('animated slideInRight');
   $('#player1').removeClass('animated slideInLeft');
-  $(`body`).prepend(audioAttack);
+  audioAttack.play();
   playerHit(1);
   removeHit(1);
 };
@@ -113,7 +126,7 @@ const attackAnimations2 = () => {
 const playerAttack = (e) => {
   const player1 = data.getPlayer1Bot();
   const player2 = data.getPlayer2Bot();
-  // const attackingPlayer = $(e.target).closest('.robot').prop('id');
+
   switch (playerTurn) {
     case 1:
       attackAnimations1();
@@ -126,6 +139,7 @@ const playerAttack = (e) => {
       $('#attack-dmg').html(`<div><h2 class='wordDamage'>Damage</h2></div></div><div id='damage'><h2 class='dmg-h2'>${damageDealt}</h2></div>`);
       if (player2.health <= 0) {
         dom.printWinner(player1);
+        player1WinsAudio.play();
       }
       playerTurn = 2;
       break;
@@ -140,6 +154,7 @@ const playerAttack = (e) => {
       $('#attack-dmg').html(`<div><h2 class='wordDamage'>Damage</h2></div><div id='damage'><h2 class='dmg-h2'>${damageDealt2}</h2></div>`);
       if (player1.health <= 0) {
         dom.printWinner(player2);
+        player2WinsAudio.play();
       }
       playerTurn = 1;
       break;
