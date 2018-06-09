@@ -53,7 +53,7 @@ const flyBots = () => {
   gryphonFlyBot.health = Math.floor(Math.random() * (141 - 120) + 120);
   gryphonFlyBot.critChance = 8;
   gryphonFlyBot.description = `The Gryphon, AKA Mr. Generic. This flying robot is your standard front line soldier. Solid across all stats. Expect steady damage output, moderate armor and substantial health. Slightly higher crit chance than they Goliath-ATV`;
-  gryphonFlyBot.img = '../img/gryphon.jpg';
+  gryphonFlyBot.img = '../img/gryphon2.jpg';
 
   const stingerFlyBot = Object.create(masterRobot);
   stingerFlyBot.name = 'Stinger';
