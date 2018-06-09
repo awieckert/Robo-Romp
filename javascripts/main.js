@@ -1,5 +1,6 @@
 const startApplication = require('../javascripts/dataGate.js');
 const backgroundAudio = document.getElementById('background-music');
+const firebaseAPI = require('../javascripts/firebaseAPI.js');
 $('#start-fight').hide();
 
 $('#battle-dome').on('click', function () {
@@ -8,3 +9,5 @@ $('#battle-dome').on('click', function () {
   startApplication();
   backgroundAudio.play();
 });
+
+firebaseAPI.callFirebaseConfig();

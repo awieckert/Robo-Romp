@@ -5,3 +5,5 @@ dist/
 haters
 Mac Users
 node_modules
+build
+db/firebase.json
